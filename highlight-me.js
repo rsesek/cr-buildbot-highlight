@@ -1,4 +1,3 @@
-var kHighlightMeEmail = 'rsesek@chromium.org';
 var kHighlightMeClass = 'HighlightMe';
 
 /**
@@ -66,18 +65,23 @@ function highlightElements(elms) {
  * Content script entrypoint.
  */
 function highlightMeMain() {
-  // Find all commits by the author.
-  var commits = findCommitsByName(kHighlightMeEmail);
+  chrome.extension.sendRequest({'method': 'getEmail'}, function(response) {
+    if (!response['email'])
+      return;
 
-  // Fetch the list of elements to highlight.
-  var elms = [];
-  for (var i in commits) {
-    var commit = commits[i];
-    elms = elms.concat(elementsToHighlightFromDevName(commit));
-  }
+    // Find all commits by the author.
+    var commits = findCommitsByName(response['email']);
 
-  // Perform the actual highlight.
-  highlightElements(elms);
+    // Fetch the list of elements to highlight.
+    var elms = [];
+    for (var i in commits) {
+      var commit = commits[i];
+      elms = elms.concat(elementsToHighlightFromDevName(commit));
+    }
+
+    // Perform the actual highlight.
+    highlightElements(elms);
+  });
 }
 
 highlightMeMain();

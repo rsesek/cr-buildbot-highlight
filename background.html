@@ -1,0 +1,11 @@
+<html>
+  <script>
+    chrome.extension.onRequest.addListener(function(request, sender, callback) {
+      if (request.method == 'getEmail') {
+        callback({'email': localStorage['highlightEmail']});
+      } else {
+        callback({});
+      }
+    });
+  </script>
+</html>

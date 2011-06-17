@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Buildbot Highlight Me &endash; Options</title>
+    <style type="text/css" media="screen">
+      body {
+        font-family: Helvetica, Arial, sans-serif;
+        margin-left: 50px;
+      }
+
+      h1 {
+        margin-bottom: 0;
+      }
+
+      #descr {
+        margin: 0;
+        padding: 0;
+        font-style: italic;
+        margin-top: 0px;
+      }
+
+      #email {
+        width: 40%;
+        font-size: 12pt;
+      }
+
+      button {
+        display: block;
+        margin-top: 12pt;
+      }
+
+      #saved {
+        color: green;
+        display: none;
+      }
+    </style>
+
+    <script type="text/javascript" charset="utf-8">
+      var kLocalStorageKey = 'highlightEmail';
+
+      function getEmailElm() {
+        return document.getElementById('email');
+      }
+
+      function loadOptions() {
+        if (localStorage[kLocalStorageKey])
+          getEmailElm().value = localStorage[kLocalStorageKey];
+      }
+
+      function saveOptions() {
+        localStorage[kLocalStorageKey] = getEmailElm().value;
+
+        var okMsg = document.getElementById('saved');
+        okMsg.style.display = 'block';
+        setTimeout(function() { okMsg.style.display = 'none'; }, 3000);
+      }
+    </script>
+  </head>
+  <body onload="loadOptions()">
+    <h1>Buildbot Highlight Me</h1>
+    <p id="descr">
+      This extension will highlight commits on the
+      <a href="http://build.chromium.org/p/chromium/console">Buildbot console</a>
+      that you've authored.
+    </p>
+
+    <p>
+      <input type="text" id="email" placeholder="Your email..."></input>
+      <button onclick="saveOptions()">Save Options</button>
+    </p>
+
+    <h2 id="saved">Options saved!</h2>
+  </body>
+</html>
