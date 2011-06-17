@@ -2,6 +2,12 @@
   "name": "Highlight Me in Buildbot",
   "version": "1.0",
   "description": "Highlight your commits on buildbot pages.",
+
+  "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+
   "content_scripts": [
     {
       "matches": ["http://build.chromium.org/*/console*"],
@@ -9,6 +15,7 @@
       "js": ["highlight-me.js"]
     }
   ],
+
   "options_page": "options.html",
   "background_page": "background.html"
 }
