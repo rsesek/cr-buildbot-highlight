@@ -1,0 +1,12 @@
+{
+  "name": "Highlight Me in Buildbot",
+  "version": "1.0",
+  "description": "Highlight your commits on buildbot pages.",
+  "content_scripts": [
+    {
+      "matches": ["http://build.chromium.org/*/console*"],
+      "css": ["highlight-me.css"],
+      "js": ["highlight-me.js"]
+    }
+  ]
+}

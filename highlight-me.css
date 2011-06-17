@@ -1,0 +1,10 @@
+/* Since the td elements are the ones that actually get colored, don't bother
+  with the row itself. */
+.HighlightMe td {
+  background-color: hsl(36, 100%, 75%) !important;
+}
+
+/* Turn the transparent boxes white */
+.HighlightMe .notstarted {
+  background-color: white;
+}
