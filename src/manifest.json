@@ -12,7 +12,8 @@
     {
       "matches": [
         "http://build.chromium.org/*/console*",
-        "http://chromegw.corp.google.com/*/console*"
+        "http://chromegw.corp.google.com/*/console*",
+        "http://build.webkit.org/console*"
       ],
       "css": ["highlight-me.css"],
       "js": ["highlight-me.js"]

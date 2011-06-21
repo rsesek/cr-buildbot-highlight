@@ -12,7 +12,7 @@ function findCommitsByName(email) {
 
   for (var i in allCommits) {
     var elm = allCommits[i];
-    if (elm.textContent == email)
+    if (elm.innerText == email)
       myCommits.push(elm);
   }
 
