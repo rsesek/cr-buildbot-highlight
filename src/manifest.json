@@ -10,7 +10,10 @@
 
   "content_scripts": [
     {
-      "matches": ["http://build.chromium.org/*/console*"],
+      "matches": [
+        "http://build.chromium.org/*/console*",
+        "http://chromegw.corp.google.com/*/console*"
+      ],
       "css": ["highlight-me.css"],
       "js": ["highlight-me.js"]
     }
