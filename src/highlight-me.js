@@ -65,7 +65,7 @@ function highlightElements(elms) {
  * Content script entrypoint.
  */
 function highlightMeMain() {
-  chrome.extension.sendRequest({'method': 'getEmail'}, function(response) {
+  chrome.extension.sendMessage({'method': 'getEmail'}, function(response) {
     if (!response['email'])
       return;
 
