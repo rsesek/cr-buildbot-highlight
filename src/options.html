@@ -35,28 +35,9 @@
       }
     </style>
 
-    <script type="text/javascript" charset="utf-8">
-      var kLocalStorageKey = 'highlightEmail';
-
-      function getEmailElm() {
-        return document.getElementById('email');
-      }
-
-      function loadOptions() {
-        if (localStorage[kLocalStorageKey])
-          getEmailElm().value = localStorage[kLocalStorageKey];
-      }
-
-      function saveOptions() {
-        localStorage[kLocalStorageKey] = getEmailElm().value;
-
-        var okMsg = document.getElementById('saved');
-        okMsg.style.display = 'block';
-        setTimeout(function() { okMsg.style.display = 'none'; }, 3000);
-      }
-    </script>
+    <script src="options.js"></script>
   </head>
-  <body onload="loadOptions()">
+  <body>
     <h1>Buildbot Highlight Me</h1>
     <p id="descr">
       This extension will highlight commits on the
@@ -66,9 +47,10 @@
 
     <p>
       <input type="text" id="email" placeholder="Your email..."></input>
-      <button onclick="saveOptions()">Save Options</button>
+      <button id="save">Save Options</button>
     </p>
 
     <h2 id="saved">Options saved!</h2>
   </body>
 </html>
+
